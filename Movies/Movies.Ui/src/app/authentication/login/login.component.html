@@ -1,15 +1,9 @@
 <h1>login works!</h1>
 <form [formGroup]="loginForm" autocomplete="off" novalidate (ngSubmit)="loginUser(loginForm.value)">
-    <div class="form-group row">
-        <label for="username" class="col-form-label col-sm-2">Username:</label>
-        <div class="col-md-5">
-            <input type="text" id="username" formControlName="username" class="form-control" />
-        </div>
-   
-    </div>
+ 
     <mat-form-field appearance="fill">
-        <mat-label>Input</mat-label>
-        <input matInput>
+        <mat-label>Username</mat-label>
+        <input matInput id="username" formControlName="username" >
       </mat-form-field>
     <br>
     <div class="form-group row">

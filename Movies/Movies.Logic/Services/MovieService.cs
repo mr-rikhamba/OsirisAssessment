@@ -64,9 +64,9 @@ namespace Movies.Logic.Services
                 {
                     DisplayTitle = movieItem.display_title,
                     ImageUrl = movieItem.multimedia?.src ?? "https://picsum.photos/200/300",
-                    NytArticleUrl = movieItem.link?.url,
+                    NytArticleUrl = movieItem.link?.url ,
                     Summary = movieItem.summary_short,
-                    ReleaseDate = movieItem.opening_date,
+                    ReleaseDate = movieItem.opening_date ?? "TBC",
                     Rating = movieItem.mpaa_rating,
                     HeadlineTitle = movieItem.headline
                 };
