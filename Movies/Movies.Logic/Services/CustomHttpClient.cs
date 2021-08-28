@@ -13,9 +13,9 @@ namespace Movies.Logic.Services
     {
         private readonly HttpClient _httpClient;
         private readonly EndPoints _endpoints;
-        private readonly NytApiKey _key;
+        private readonly KeyModel _key;
 
-        public CustomHttpClient(HttpClient httpClient, IOptions<EndPoints> endpointsOptions, IOptions<NytApiKey> keyOptions)
+        public CustomHttpClient(HttpClient httpClient, IOptions<EndPoints> endpointsOptions, IOptions<KeyModel> keyOptions)
         {
             _httpClient = httpClient;
             _endpoints = endpointsOptions.Value;

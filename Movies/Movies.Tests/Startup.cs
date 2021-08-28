@@ -30,9 +30,9 @@ namespace Movies.Tests
            .AddJsonFile("appsettings.json")
            .Build();
             IConfiguration config = configuration as IConfiguration;
-            services.Configure<NytApiKey>(action =>
+            services.Configure<KeyModel>(action =>
             {
-                var key = config.GetSection("NytApiKey").Get<NytApiKey>();
+                var key = config.GetSection("NytApiKey").Get<KeyModel>();
                 action.Key = key.Key;
             });
             services.Configure<EndPoints>(action => {

@@ -19,7 +19,7 @@ namespace Movies.Tests
         {
             var data = await _movieService.GetTopPicks();
 
-            Assert.True(data.num_results == 20);
+            Assert.True(data.Count() == 20);
         }
         [Theory]
         [InlineData("Candyman")]
@@ -28,7 +28,7 @@ namespace Movies.Tests
         {
             var data = await _movieService.Search(movieTitle);
 
-            Assert.Contains(data.results, c =>c.display_title == movieTitle);
+            Assert.Contains(data, c =>c.DisplayTitle == movieTitle);
         }
     }
 }
