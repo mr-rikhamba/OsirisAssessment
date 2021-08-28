@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
+using Movies.Logic.IServices;
+using Movies.Logic.Models.NytModels;
 
 namespace Movies.Api.Controllers
 {
@@ -15,26 +18,26 @@ namespace Movies.Api.Controllers
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
-
+        private readonly IMovieService _movieService;
+        private readonly IMemoryCache _memoryCache;
         private readonly ILogger<WeatherForecastController> _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IMovieService movieService, IMemoryCache memoryCache)
         {
             _logger = logger;
+            _movieService = movieService;
+            _memoryCache = memoryCache;
         }
 
         [HttpGet]
 
-        public IEnumerable<WeatherForecast> Get()
+        public async Task<NytTimesModel> Get()
         {
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-            .ToArray();
+            return await _memoryCache.GetOrCreateAsync("MoviePicks", async (ICacheEntry arg) =>
+           {
+               var data = await _movieService.GetTopPicks();
+               return data;
+           });
         }
     }
 }

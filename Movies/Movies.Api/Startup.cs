@@ -11,6 +11,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Movies.Logic.IServices;
+using Movies.Logic.Models.Configs;
+using Movies.Logic.Services;
 
 namespace Movies.Api
 {
@@ -26,11 +29,21 @@ namespace Movies.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<NytApiKey>(Configuration.GetSection("NytApiKey"));
+            services.Configure<EndPoints>(Configuration.GetSection("Endpoints"));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
             });
+
+            services.AddMemoryCache( (obj) =>
+            {
+
+            });
+            services.AddHttpClient();
+            services.AddSingleton<ICustomHttpClient, CustomHttpClient>();
+            services.AddScoped<IMovieService, MovieService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,0 +1,64 @@
+﻿{
+  "status": "OK",
+  "copyright": "Copyright (c) 2021 The New York Times Company. All Rights Reserved.",
+  "has_more": false,
+  "num_results": 3,
+  "results": [
+    {
+      "display_title": "Candyman",
+      "mpaa_rating": "R",
+      "critics_pick": 1,
+      "byline": "Manohla Dargis",
+      "headline": "‘Candyman’ Review: Who Can Take a Sunrise, Sprinkle It With Blood?",
+      "summary_short": "The new take on the 1990s cult horror film returns the story to its old stomping ground, this time with Jordan Peele as a producer.",
+      "publication_date": "2021-08-26",
+      "opening_date": "2021-08-27",
+      "date_updated": "2021-08-26 12:01:03",
+      "link": {
+        "type": "article",
+        "url": "https://www.nytimes.com/2021/08/26/movies/candyman-review.html",
+        "suggested_link_text": "Read the New York Times Review of Candyman"
+      },
+      "multimedia": {
+        "type": "mediumThreeByTwo210",
+        "src": "https://static01.nyt.com/images/2021/08/25/arts/00candyman/00candyman-mediumThreeByTwo440.jpg",
+        "height": 140,
+        "width": 210
+      }
+    },
+    {
+      "display_title": "Candyman: Farewell to the Flesh",
+      "mpaa_rating": "R",
+      "critics_pick": 0,
+      "byline": "CARYN JAMES",
+      "headline": "CANDYMAN (MOVIE)",
+      "summary_short": "Serial killer in New Orleans. Predictable, low-rent sequel.",
+      "publication_date": "1995-03-18",
+      "opening_date": "1995-03-17",
+      "date_updated": "2017-11-02 04:17:48",
+      "link": {
+        "type": "article",
+        "url": "https://www.nytimes.com/1995/03/18/movies/film-review-a-specter-with-a-portfolio-of-blood-honey-and-bees.html",
+        "suggested_link_text": "Read the New York Times Review of Candyman: Farewell to the Flesh"
+      },
+      "multimedia": null
+    },
+    {
+      "display_title": "Candyman",
+      "mpaa_rating": "R",
+      "critics_pick": 0,
+      "byline": "Janet Maslin",
+      "headline": "CANDYMAN (MOVIE)",
+      "summary_short": "Sci-fi horror in Brooklyn housing project. Authentically strange.",
+      "publication_date": "1992-10-16",
+      "opening_date": "1992-10-16",
+      "date_updated": "2017-11-02 04:17:44",
+      "link": {
+        "type": "article",
+        "url": "https://www.nytimes.com/1992/10/16/movies/review-film-science-fiction-horrors-in-a-housing-project.html",
+        "suggested_link_text": "Read the New York Times Review of Candyman"
+      },
+      "multimedia": null
+    }
+  ]
+}
