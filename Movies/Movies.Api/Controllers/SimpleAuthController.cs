@@ -55,7 +55,7 @@ namespace Movies.Api.Controllers
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        private string GenerateJwtTokens(IdentityUser user)
+        private AuthModel GenerateJwtTokens(IdentityUser user)
         {
             var jwtTokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_authKeyModel.Key);
@@ -73,7 +73,7 @@ namespace Movies.Api.Controllers
             };
             var token = jwtTokenHandler.CreateToken(tokenDescriptor);
             var jwtToken = jwtTokenHandler.WriteToken(token);
-            return jwtToken;
+            return new AuthModel { Token = jwtToken};
         }
     }
 }

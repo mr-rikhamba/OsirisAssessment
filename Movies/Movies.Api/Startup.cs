@@ -66,6 +66,16 @@ namespace Movies.Api
                 };
             });
             services.AddHttpClient();
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    builder =>
+                    {
+                        builder.WithOrigins("http://localhost:4200")
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
+                    });
+            });
             services.AddSingleton<ICustomHttpClient, CustomHttpClient>();
             services.AddScoped<IMovieService, MovieService>();
         }
@@ -86,6 +96,7 @@ namespace Movies.Api
 
             app.UseHttpsRedirection();
 
+            app.UseCors();
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
