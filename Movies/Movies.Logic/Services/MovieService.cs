@@ -25,9 +25,11 @@ namespace Movies.Logic.Services
             return data;
         }
 
-        public Task<NytTimesModel> Search(string searchString)
+        public async Task<NytTimesModel> Search(string searchString)
         {
-            throw new NotImplementedException();
+            var path = string.Format(_endpoints.Search, _key.Key, searchString);
+            var data = await _httpClient.GetData<NytTimesModel>(path);
+            return data;
         }
     }
 }

@@ -34,10 +34,20 @@ namespace Movies.Api.Controllers
         public async Task<NytTimesModel> Get()
         {
             return await _memoryCache.GetOrCreateAsync("MoviePicks", async (ICacheEntry arg) =>
-           {
-               var data = await _movieService.GetTopPicks();
-               return data;
-           });
+            {
+                var data = await _movieService.GetTopPicks();
+                return data;
+            });
+        }
+        [HttpGet("search/{searchString}")]
+
+        public async Task<NytTimesModel> Get(string searchString)
+        {
+            return await _memoryCache.GetOrCreateAsync(searchString, async (ICacheEntry arg) =>
+            {
+                var data = await _movieService.Search(searchString);
+                return data;
+            });
         }
     }
 }
