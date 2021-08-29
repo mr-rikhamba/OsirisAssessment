@@ -19,6 +19,6 @@ export class MovieServiceService {
     return this.http.get<MovieModel[]>(`${environment.baseURL}/Api/Movies/Picks`, { headers: this.headers });
   }
   search(searchString:string) {
-    return this.http.get<MovieModel[]>(`${environment.baseURL}/Api/Movies/Search/${searchString}`);
+    return this.http.get<MovieModel[]>(`${environment.baseURL}/Api/Movies/Search/${searchString}`, { headers: this.headers });
   }
 }

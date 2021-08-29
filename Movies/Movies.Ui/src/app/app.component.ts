@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.darkModeService.disable();
     this.authServiceService.authChanged
       .subscribe(res => {
         this.isUserAuthenticated = res;

@@ -56,14 +56,17 @@ namespace Movies.Logic.Services
 
         private IEnumerable<SimpleMovieModel> ToSimplyModel(NytTimesModel nytTimesModel)
         {
-
+            if (nytTimesModel.num_results == 0)
+            {
+                yield break;
+            }
             _logger.LogInformation("Simplifying Data");
-            foreach (var movieItem in nytTimesModel.results)
+            foreach (var movieItem in nytTimesModel?.results)
             {
                 yield return new SimpleMovieModel
                 {
                     DisplayTitle = movieItem.display_title,
-                    ImageUrl = movieItem.multimedia?.src ?? "https://picsum.photos/200/300",
+                    ImageUrl = movieItem.multimedia?.src ?? "https://picsum.photos/440/293",
                     NytArticleUrl = movieItem.link?.url ,
                     Summary = movieItem.summary_short,
                     ReleaseDate = movieItem.opening_date ?? "TBC",

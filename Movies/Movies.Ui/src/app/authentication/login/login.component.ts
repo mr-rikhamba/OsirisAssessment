@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
       .subscribe(res => {
         localStorage.setItem("token", res.token);
 
-        this._authService.sendAuthStateChangeNotification(res.isAuthSuccessful);
+        this._authService.sendAuthStateChangeNotification(true);
         this._router.navigateByUrl(this._returnUrl);
       }, (error) => {
         console.log(error);

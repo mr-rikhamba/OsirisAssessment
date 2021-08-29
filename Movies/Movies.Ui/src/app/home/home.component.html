@@ -1,5 +1,20 @@
-<p>home works!</p>
 
+<form class="row" [formGroup]="searchForm" autocomplete="off" novalidate (ngSubmit)="Search(searchForm.value)">
+  <div class="col-11 col-sm-2">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Name of a movie</mat-label>
+      <input matInput placeholder="Search for movies" id="searchString" formControlName="searchString" />
+    </mat-form-field>
+  </div>  
+  <div class="col-1 col-sm-1 gy-2">
+    <button type="submit" mat-mini-fab color="primary" aria-label="Example icon button with a delete icon">
+      <mat-icon>search</mat-icon>
+    </button>
+  </div> 
+  <div class="col-12 col-sm-1 gy-2">
+    <mat-spinner [diameter]="40" *ngIf="isIsLoading"></mat-spinner>
+  </div>
+</form>
 <div class="row">
   <div class="col-12 col-sm-3 gy-5" *ngFor="let movie of movies; let i = index" [attr.data-index]="i">
     <mat-card class="example-card">
@@ -17,4 +32,10 @@
       </mat-card-actions>
     </mat-card>
   </div>
+</div>
+
+<div *ngIf="isIsLoading" id="fullscreenLoader">
+  <div class="progress">
+  </div>
+
 </div>
